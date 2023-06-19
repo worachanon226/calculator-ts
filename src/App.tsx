@@ -1,9 +1,13 @@
 import React from "react";
 import "./App.css";
-import Numpad from "./components/Numpad";
+import Pad from "./components/Pad";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Pad></Pad>
+    </div>
+  );
 }
 
 export default App;

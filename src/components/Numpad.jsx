@@ -1,4 +1,3 @@
-import { isLabelWithInternallyDisabledControl } from "@testing-library/user-event/dist/utils";
 import React from "react";
 import styled, { css } from "styled-components";
 
@@ -14,21 +13,21 @@ const colorStyle = (color) => {
     `;
   } else if (color === "orange") {
     return css`
-      background-color: #ffa05f;
+      background-color: #ff9e52;
       color: #ffffff;
       &:hover,
       &:focus {
         background-color: #ffffff;
-        color: #ffa05f;
+        color: #ff9e52;
       }
     `;
   } else if (color === "dark") {
     return css`
-      background-color: #272727;
-      color: #c5830d;
+      background-color: #4a4a4a;
+      color: #ffffff;
       &:hover,
       &:focus {
-        background-color: #1a1a1a;
+        background-color: #a2a2a2;
       }
     `;
   } else {
@@ -70,11 +69,26 @@ export const ButtonStyle = styled.button`
   transform: translate3d(0, 0, 0);
   ${({ color }) => colorStyle(color)}
   ${({ isLarge }) => textStyle(isLarge)}
+  ${({ isExpand }) =>
+    isExpand &&
+    css`
+      grid-column-end: span 2;
+      width: 220px;
+      height: 100px;
+      border-radius: 50px;
+      text-align: left;
+      padding-left: 36px;
+    `}
 `;
 
-const Numpad = ({ children, color, isLarge, onClick }) => {
+const Numpad = ({ children, color, isLarge, isExpand, onClick }) => {
   return (
-    <ButtonStyle color={color} isLarge={isLarge} onClick={onClick}>
+    <ButtonStyle
+      color={color}
+      isLarge={isLarge}
+      isExpand={isExpand}
+      onClick={onClick}
+    >
       {children}
     </ButtonStyle>
   );
