@@ -41,10 +41,16 @@ const colorStyle = (color) => {
   }
 };
 
-const buttonStyle = styled.button`
+export const buttonStyle = styled.button`
   ${({ color }) => colorToCss(color)}
 `;
 
 const Numpad = ({ children, color, onClick }) => {
-  return <buttonStyle color={color}>{children}</buttonStyle>;
+  return (
+    <buttonStyle color={color} onClick={onClick}>
+      {children}
+    </buttonStyle>
+  );
 };
+
+export default Numpad;
