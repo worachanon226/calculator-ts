@@ -1,8 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const colorStyle = (color) => {
   if (color === "red") {
+    console.log("Red");
     return css`
       background-color: #c04444;
       color: #fff;
@@ -41,15 +42,15 @@ const colorStyle = (color) => {
   }
 };
 
-export const buttonStyle = styled.button`
-  ${({ color }) => colorToCss(color)}
+export const ButtonStyle = styled.button`
+  ${({ color }) => colorStyle(color)}
 `;
 
 const Numpad = ({ children, color, onClick }) => {
   return (
-    <buttonStyle color={color} onClick={onClick}>
+    <ButtonStyle color={color} onClick={onClick}>
       {children}
-    </buttonStyle>
+    </ButtonStyle>
   );
 };
 
