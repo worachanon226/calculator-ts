@@ -1,7 +1,15 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 
-const colorStyle = (color) => {
+interface ButtonProps {
+  children?: string;
+  color?: "grey" | "orange" | "dark";
+  isLarge?: boolean;
+  isExpand?: boolean;
+  onClick?: () => void;
+}
+
+const colorStyle = (color: ButtonProps["color"]) => {
   if (color === "grey") {
     return css`
       background-color: #c4c4c4;
@@ -42,19 +50,7 @@ const colorStyle = (color) => {
   }
 };
 
-const textStyle = (isLarge) => {
-  if (isLarge) {
-    return css`
-      font-size: 50px;
-    `;
-  } else {
-    return css`
-      font-size: 35px;
-    `;
-  }
-};
-
-export const ButtonStyle = styled.button`
+export const ButtonStyle = styled.button<ButtonProps>`
   font-family: inherit;
   margin: 10px 10px 10px 10px;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -62,13 +58,18 @@ export const ButtonStyle = styled.button`
   height: 100px;
   width: 100px;
   font-weight: bold;
+  font-size: 35px;
 
   transition: background-color 0.15s ease-in-out, opacity 0.15s ease-in-out;
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);
   ${({ color }) => colorStyle(color)}
-  ${({ isLarge }) => textStyle(isLarge)}
+  ${({ isLarge }) =>
+    isLarge &&
+    css`
+      font-size: 50px;
+    `}
   ${({ isExpand }) =>
     isExpand &&
     css`
@@ -81,7 +82,13 @@ export const ButtonStyle = styled.button`
     `}
 `;
 
-const Numpad = ({ children, color, isLarge, isExpand, onClick }) => {
+const Numpad: FunctionComponent<ButtonProps> = ({
+  children,
+  color,
+  isLarge,
+  isExpand,
+  onClick,
+}) => {
   return (
     <ButtonStyle
       color={color}
