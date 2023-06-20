@@ -5,7 +5,9 @@ import Pad from "./components/Pad";
 function App() {
   return (
     <div className="App">
-      <Pad></Pad>
+      <div className="Calculatator">
+        <Pad></Pad>
+      </div>
     </div>
   );
 }
