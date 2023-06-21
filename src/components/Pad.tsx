@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent, useEffect } from "react";
 import styled from "styled-components";
 import Numpad from "./Numpad";
 
@@ -8,7 +8,18 @@ const StyledPad = styled.div`
   grid-auto-rows: 110px;
 `;
 
-const Pad = () => {
+interface Padprops {}
+
+export const Pad: FunctionComponent<Padprops> = () => {
+  const handleKeyDown = ({ keyCode, shiftKey }: KeyboardEvent) => {
+    console.log(keyCode);
+  };
+
+  useEffect(() => {
+    document.body.addEventListener("keydown", handleKeyDown);
+    return () => document.body.removeEventListener("keydown", handleKeyDown);
+  });
+
   return (
     <StyledPad>
       <Numpad color={"grey"} isLarge={false}>
