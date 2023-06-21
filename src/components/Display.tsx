@@ -13,7 +13,6 @@ export const DisplayStyle = styled.div<DisplayProps>`
   background-color: black;
   color: white;
   font-family: inherit;
-  font-weight: bold;
   font-size: 90px;
 
   text-align: right;
