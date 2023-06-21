@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import Pad from "./components/Pad";
 import Display from "./components/Display";
-import { setMaxIdleHTTPParsers } from "http";
 
 function App() {
   const [value, setValue] = useState<string>("0");
