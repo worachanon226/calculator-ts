@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import "./Display.css";
 
 interface DisplayProps {
   children?: any;
@@ -11,16 +12,16 @@ export const DisplayStyle = styled.div<DisplayProps>`
   color: white;
   font-family: inherit;
   font-weight: bold;
-  font-size: 70px;
+  font-size: 90px;
 
-  margin: auto;
   text-align: right;
+  margin-bottom: 20px;
 `;
 
 const Display = () => {
   return (
     <DisplayStyle>
-      <p>1000</p>
+      <p className="display">1000</p>
     </DisplayStyle>
   );
 };

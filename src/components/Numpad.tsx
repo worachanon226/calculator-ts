@@ -74,8 +74,8 @@ export const ButtonStyle = styled.button<ButtonProps>`
     isExpand &&
     css`
       grid-column-end: span 2;
-      width: 220px;
-      height: 100px;
+      width: 200px;
+      height: 90px;
       border-radius: 50px;
       text-align: left;
       padding-left: 36px;
