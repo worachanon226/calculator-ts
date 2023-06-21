@@ -1,8 +1,10 @@
+import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import "./Display.css";
 
 interface DisplayProps {
   children?: any;
+  value?: string;
 }
 
 export const DisplayStyle = styled.div<DisplayProps>`
@@ -18,10 +20,12 @@ export const DisplayStyle = styled.div<DisplayProps>`
   margin-bottom: 20px;
 `;
 
-const Display = () => {
+const Display: FunctionComponent<DisplayProps> = ({ value }) => {
+  value = "0";
+
   return (
     <DisplayStyle>
-      <p className="display">1000</p>
+      <p className="display">{value}</p>
     </DisplayStyle>
   );
 };
