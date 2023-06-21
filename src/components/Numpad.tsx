@@ -55,8 +55,8 @@ export const ButtonStyle = styled.button<ButtonProps>`
   margin: 10px 10px 10px 10px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   font-weight: bold;
   font-size: 35px;
 

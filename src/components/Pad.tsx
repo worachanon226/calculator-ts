@@ -4,8 +4,8 @@ import Numpad from "./Numpad";
 
 const StyledPad = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 120px);
-  grid-auto-rows: 120px;
+  grid-template-columns: repeat(4, 110px);
+  grid-auto-rows: 110px;
 `;
 
 const Pad = () => {
