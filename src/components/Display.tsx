@@ -20,8 +20,6 @@ export const DisplayStyle = styled.div<DisplayProps>`
 `;
 
 const Display: FunctionComponent<DisplayProps> = ({ value }) => {
-  value = "0";
-
   return (
     <DisplayStyle>
       <p className="display">{value}</p>
