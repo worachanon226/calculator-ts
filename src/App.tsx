@@ -26,6 +26,22 @@ function App() {
     return true;
   };
 
+  const onDigitButtonClick = (digit: number) => {
+    let newValue = value;
+
+    if ((value === "0" && digit === 0) || value.length > 12) {
+      return;
+    }
+
+    if (value !== "0") {
+      newValue = newValue + digit.toString();
+    } else {
+      newValue = digit.toString();
+    }
+
+    setValue(newValue);
+  };
+
   const onEqualButtonClick = () => {
     const num = Number(value);
 
