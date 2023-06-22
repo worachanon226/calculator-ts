@@ -33,6 +33,11 @@ function App() {
       return;
     }
 
+    if (waitingOp) {
+      newValue = "";
+      setWaitingOp(false);
+    }
+
     if (value !== "0") {
       newValue = newValue + digit.toString();
     } else {
@@ -51,6 +56,21 @@ function App() {
     } else {
       setValue(num.toString());
     }
+  };
+
+  const onPointButtonClick = () => {
+    let newValue = value;
+
+    if (waitingOp) {
+      newValue = "0";
+    }
+
+    if (newValue.indexOf(".") === -1) {
+      newValue = newValue + ".";
+    }
+
+    setValue(newValue);
+    setWaitingOp(false);
   };
 
   return (
