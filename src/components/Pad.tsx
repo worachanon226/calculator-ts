@@ -8,11 +8,15 @@ const StyledPad = styled.div`
   grid-auto-rows: 110px;
 `;
 
-interface Padprops {}
+interface Padprops {
+  onDigitButtonClick: (digit: number) => void;
+}
 
-export const Pad: FunctionComponent<Padprops> = () => {
+export const Pad: FunctionComponent<Padprops> = ({ onDigitButtonClick }) => {
   const handleKeyDown = ({ keyCode, shiftKey }: KeyboardEvent) => {
     console.log(keyCode);
+    if (keyCode >= 48 && keyCode <= 57 && !shiftKey)
+      onDigitButtonClick(keyCode - 48);
   };
 
   useEffect(() => {

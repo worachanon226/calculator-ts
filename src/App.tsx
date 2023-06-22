@@ -22,14 +22,14 @@ function App() {
     }
 
     setResult(newResult);
-    setValue(newResult.toString().slice(0, 12));
+    setValue(newResult.toString().slice(0, 6));
     return true;
   };
 
   const onDigitButtonClick = (digit: number) => {
     let newValue = value;
 
-    if ((value === "0" && digit === 0) || value.length > 12) {
+    if ((value === "0" && digit === 0) || value.length > 6) {
       return;
     }
 
@@ -77,7 +77,7 @@ function App() {
     <div className="App">
       <div className="Calculatator">
         <Display value={value}></Display>
-        <Pad></Pad>
+        <Pad onDigitButtonClick={onDigitButtonClick}></Pad>
       </div>
     </div>
   );
