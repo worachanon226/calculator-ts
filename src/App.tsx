@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./App.css";
 import Pad from "./components/Pad";
 import Display from "./components/Display";
-import { wait } from "@testing-library/user-event/dist/utils";
-
 function App() {
   const [value, setValue] = useState<string>("0");
   const [result, setResult] = useState<number>(0);
@@ -96,7 +94,11 @@ function App() {
     <div className="App">
       <div className="Calculatator">
         <Display value={value}></Display>
-        <Pad onDigitButtonClick={onDigitButtonClick}></Pad>
+        <Pad
+          onDigitButtonClick={onDigitButtonClick}
+          onEqualButtonClick={onEqualButtonClick}
+          onOperatorButtonClick={onOperatorButtonClick}
+        ></Pad>
       </div>
     </div>
   );
