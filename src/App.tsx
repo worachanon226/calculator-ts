@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Pad from "./components/Pad";
 import Display from "./components/Display";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 function App() {
   const [value, setValue] = useState<string>("0");
@@ -45,6 +46,24 @@ function App() {
     }
 
     setValue(newValue);
+  };
+
+  const onOperatorButtonClick = (opr: string) => {
+    const num = Number(value);
+    if (typeof nowOp !== undefined && !waitingOp) {
+      if (!calculate(num, opr)) return;
+      else setResult(num);
+    }
+
+    setNowOp(opr);
+    setWaitingOp(true);
+  };
+
+  const onChangeSignButtonClick = () => {
+    const num = Number(value);
+
+    if (num > 0) setValue("-" + value);
+    else if (num < 0) setValue(value.slice(1));
   };
 
   const onEqualButtonClick = () => {
