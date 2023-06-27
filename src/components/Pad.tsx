@@ -12,27 +12,39 @@ interface Padprops {
   onDigitButtonClick: (digit: number) => void;
   onOperatorButtonClick: (opr: string) => void;
   onEqualButtonClick: () => void;
+  onAllClearButtonClick: () => void;
+  onChangeSignButtonClick: () => void;
+  onPointButtonClick: () => void;
 }
 
 export const Pad: FunctionComponent<Padprops> = ({
   onDigitButtonClick,
   onOperatorButtonClick,
   onEqualButtonClick,
+  onAllClearButtonClick,
+  onChangeSignButtonClick,
+  onPointButtonClick,
 }) => {
   const handleKeyDown = ({ keyCode, shiftKey }: KeyboardEvent) => {
     console.log(keyCode);
     if (keyCode >= 48 && keyCode <= 57 && !shiftKey) {
       onDigitButtonClick(keyCode - 48);
-    } else if (keyCode === 107 || (keyCode === 187 && shiftKey)) {
+    } else if (keyCode === 187 && shiftKey) {
       onOperatorButtonClick("+");
-    } else if (keyCode === 109 || keyCode === 189) {
+    } else if (keyCode === 189) {
       onOperatorButtonClick("-");
-    } else if (keyCode === 106 || (keyCode === 56 && shiftKey)) {
-      onOperatorButtonClick("×");
-    } else if (keyCode === 111 || keyCode === 191) {
-      onOperatorButtonClick("÷");
-    } else if (keyCode === 13 || (keyCode === 187 && !shiftKey)) {
+    } else if (keyCode === 56 && shiftKey) {
+      onOperatorButtonClick("*");
+    } else if (keyCode === 191) {
+      onOperatorButtonClick("/");
+    } else if ((keyCode === 187 && !shiftKey) || keyCode === 13) {
       onEqualButtonClick();
+    } else if (keyCode === 27) {
+      onAllClearButtonClick();
+    } else if (keyCode === 78) {
+      onChangeSignButtonClick();
+    } else if (keyCode === 190) {
+      onPointButtonClick();
     }
   };
 

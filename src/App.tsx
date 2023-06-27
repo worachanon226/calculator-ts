@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Pad from "./components/Pad";
 import Display from "./components/Display";
+
 function App() {
   const [value, setValue] = useState<string>("0");
   const [result, setResult] = useState<number>(0);
@@ -16,7 +17,8 @@ function App() {
       newResult -= num;
     } else if (op === "*") {
       newResult *= num;
-    } else {
+    } else if (op === "/") {
+      if (num === 0) return false;
       newResult /= num;
     }
 
@@ -25,9 +27,15 @@ function App() {
     return true;
   };
 
+  const OnAllClearButtonClick = () => {
+    setValue("0");
+    setResult(0);
+    setWaitingOp(true);
+    setNowOp(undefined);
+  };
+
   const onDigitButtonClick = (digit: number) => {
     let newValue = value;
-
     if ((value === "0" && digit === 0) || value.length > 6) {
       return;
     }
@@ -48,10 +56,12 @@ function App() {
 
   const onOperatorButtonClick = (opr: string) => {
     const num = Number(value);
-    if (typeof nowOp !== undefined && !waitingOp) {
-      if (!calculate(num, opr)) return;
-      else setResult(num);
-    }
+
+    if (typeof nowOp !== "undefined" && !waitingOp) {
+      if (!calculate(num, nowOp)) {
+        return;
+      }
+    } else setResult(num);
 
     setNowOp(opr);
     setWaitingOp(true);
@@ -73,6 +83,9 @@ function App() {
     } else {
       setValue(num.toString());
     }
+
+    setResult(num);
+    setWaitingOp(true);
   };
 
   const onPointButtonClick = () => {
@@ -98,6 +111,9 @@ function App() {
           onDigitButtonClick={onDigitButtonClick}
           onEqualButtonClick={onEqualButtonClick}
           onOperatorButtonClick={onOperatorButtonClick}
+          onAllClearButtonClick={OnAllClearButtonClick}
+          onChangeSignButtonClick={onChangeSignButtonClick}
+          onPointButtonClick={onPointButtonClick}
         ></Pad>
       </div>
     </div>
