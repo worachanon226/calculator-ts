@@ -55,61 +55,118 @@ export const Pad: FunctionComponent<Padprops> = ({
 
   return (
     <StyledPad>
-      <Numpad color={"grey"} isLarge={false}>
+      <Numpad color={"grey"} isLarge={false} onClick={onAllClearButtonClick}>
         C
       </Numpad>
-      <Numpad color={"grey"} isLarge={false}>
+      <Numpad color={"grey"} isLarge={false} onClick={onChangeSignButtonClick}>
         +/-
       </Numpad>
       <Numpad color={"grey"} isLarge={false}>
         %
       </Numpad>
-      <Numpad color={"orange"} isLarge={true}>
+      <Numpad
+        color={"orange"}
+        isLarge={true}
+        onClick={() => onOperatorButtonClick("/")}
+      >
         ÷
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(7)}
+      >
         7
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(8)}
+      >
         8
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(9)}
+      >
         9
       </Numpad>
-      <Numpad color={"orange"} isLarge={true}>
+      <Numpad
+        color={"orange"}
+        isLarge={true}
+        onClick={() => onOperatorButtonClick("*")}
+      >
         ×
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(4)}
+      >
         4
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(5)}
+      >
         5
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(6)}
+      >
         6
       </Numpad>
-      <Numpad color={"orange"} isLarge={true}>
+      <Numpad
+        color={"orange"}
+        isLarge={true}
+        onClick={() => onOperatorButtonClick("-")}
+      >
         -
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(1)}
+      >
         1
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(2)}
+      >
         2
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        onClick={() => onDigitButtonClick(3)}
+      >
         3
       </Numpad>
-      <Numpad color={"orange"} isLarge={true}>
+      <Numpad
+        color={"orange"}
+        isLarge={true}
+        onClick={() => onOperatorButtonClick("+")}
+      >
         +
       </Numpad>
-      <Numpad color={"dark"} isLarge={false} isExpand={true}>
+      <Numpad
+        color={"dark"}
+        isLarge={false}
+        isExpand={true}
+        onClick={() => onDigitButtonClick(0)}
+      >
         0
       </Numpad>
-      <Numpad color={"dark"} isLarge={false}>
+      <Numpad color={"dark"} isLarge={false} onClick={onPointButtonClick}>
         .
       </Numpad>
-      <Numpad color={"orange"} isLarge={true}>
+      <Numpad color={"orange"} isLarge={true} onClick={onEqualButtonClick}>
         =
       </Numpad>
     </StyledPad>
