@@ -15,6 +15,7 @@ interface Padprops {
   onAllClearButtonClick: () => void;
   onChangeSignButtonClick: () => void;
   onPointButtonClick: () => void;
+  onPercentButtonClick: () => void;
 }
 
 export const Pad: FunctionComponent<Padprops> = ({
@@ -24,9 +25,9 @@ export const Pad: FunctionComponent<Padprops> = ({
   onAllClearButtonClick,
   onChangeSignButtonClick,
   onPointButtonClick,
+  onPercentButtonClick,
 }) => {
   const handleKeyDown = ({ keyCode, shiftKey }: KeyboardEvent) => {
-    console.log(keyCode);
     if (keyCode >= 48 && keyCode <= 57 && !shiftKey) {
       onDigitButtonClick(keyCode - 48);
     } else if (keyCode === 187 && shiftKey) {
@@ -45,6 +46,8 @@ export const Pad: FunctionComponent<Padprops> = ({
       onChangeSignButtonClick();
     } else if (keyCode === 190) {
       onPointButtonClick();
+    } else if (keyCode === 53 && shiftKey) {
+      onPercentButtonClick();
     }
   };
 
@@ -61,7 +64,7 @@ export const Pad: FunctionComponent<Padprops> = ({
       <Numpad color={"grey"} isLarge={false} onClick={onChangeSignButtonClick}>
         +/-
       </Numpad>
-      <Numpad color={"grey"} isLarge={false}>
+      <Numpad color={"grey"} isLarge={false} onClick={onPercentButtonClick}>
         %
       </Numpad>
       <Numpad

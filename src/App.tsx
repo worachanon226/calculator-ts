@@ -88,6 +88,14 @@ function App() {
     setWaitingOp(true);
   };
 
+  const onPercentButtonClick = () => {
+    let num = Number(value);
+    if (num !== 0) {
+      num /= 100;
+      setValue(num.toString());
+    }
+  };
+
   const onPointButtonClick = () => {
     let newValue = value;
 
@@ -114,6 +122,7 @@ function App() {
           onAllClearButtonClick={OnAllClearButtonClick}
           onChangeSignButtonClick={onChangeSignButtonClick}
           onPointButtonClick={onPointButtonClick}
+          onPercentButtonClick={onPercentButtonClick}
         ></Pad>
       </div>
     </div>
